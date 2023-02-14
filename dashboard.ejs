@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Dashboard</title>
+  </head>
+  <body>
+    <h1>My Dashboard</h1>
+    <button onclick="fetchData()">Fetch Data</button>
+    <p><%= data %></p>
+
+    <script>
+      const fetchData = async () => {
+        const response = await fetch('/lambda');
+        const data = await response.text();
+        document.querySelector('p').innerHTML = data;
+      };
+    </script>
+  </body>
+</html>
